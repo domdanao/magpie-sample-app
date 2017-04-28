@@ -29,10 +29,19 @@ Magpie.configure({
             'description': description
         },
         dataType: "json",
+        // What to do next after making the AJAX call
+        // Payment was processed
         success: function (data) {
             console.log(data);
+            // We load a page if this event is fired.
+            // You can also do other cool notification stuff here
+            // 1. Trigger a modal
+            // 2. Send an email notification.
+            // 3. Send an SMS, if you know the mobile number of the customer.
+            // 4. Etcetera.
             window.location.href = "/thanks.html";
         },
+        // Something went wrong
         error: function(e) {
             console.log(e);
             window.alert("Error: " + e);
@@ -43,7 +52,7 @@ Magpie.configure({
     });
 });
 
-
+// Must correspond to the id of the link in index.php
 $("#standard").on("click", function(e) {
     e.preventDefault();
     amount = 499;
