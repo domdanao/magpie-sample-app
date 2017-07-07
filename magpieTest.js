@@ -3,7 +3,7 @@ var description = "Magpie Test";
 
 Magpie.configure({
     // The publishable key from the Magpie dashboard
-    key: "pk_test_KEYHERE",
+    key: "pk_test_Q6EVrrKQbiA2fOsM2qXstw",
     // The name of the store -- appears on the checkout page
     name: "Dom Test",
     // The description of the product or service being purchased

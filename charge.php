@@ -13,8 +13,8 @@ session_start();
 $statement_descriptor = 'Magpie/TEST';
 
 // Your Magpie API keys
-define('MAGPIE_SECRET_KEY', 'sk_test_KEYHERE');
-define('MAGPIE_PUBLIC_KEY', 'pk_test_KEYHERE');
+define('MAGPIE_SECRET_KEY', 'sk_test_GQh2UwprhMfvjNJYdrZodw');
+define('MAGPIE_PUBLIC_KEY', 'pk_test_Q6EVrrKQbiA2fOsM2qXstw');
 
 if(!empty($_POST)) {
 
