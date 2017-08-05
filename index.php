@@ -25,7 +25,8 @@
   
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
   <script src="https://checkout.magpie.im/checkout.js"></script>
-  <!--<script src="https://checkout.magpie.im/alphamagpie.js"></script>-->
+  <!-- <script src="https://checkout.magpie.im/development/magpie2.js"></script> -->
+
   <link rel="stylesheet" href="assets/loader/loader.css">
 </head>
 <body>

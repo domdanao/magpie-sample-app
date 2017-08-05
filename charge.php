@@ -1,20 +1,17 @@
 <?
 // Process payments via Magpie Checkout
+// Sample implementation only
 
 require 'vendor/autoload.php';
 ini_set('display_errors', 1);
+require 'config.php';
 
 // Timezone Manila
-date_default_timezone_set('Asia/Manila');
+date_default_timezone_set($time_zone);
 
 $reply = array();
 session_start();
 
-$statement_descriptor = 'Magpie/TEST';
-
-// Your Magpie API keys
-define('MAGPIE_SECRET_KEY', 'sk_test_GQh2UwprhMfvjNJYdrZodw');
-define('MAGPIE_PUBLIC_KEY', 'pk_test_Q6EVrrKQbiA2fOsM2qXstw');
 
 if(!empty($_POST)) {
 
@@ -35,7 +32,7 @@ if(!empty($_POST)) {
 
 	} else {
 
-        // Token does not exist
+		// Token does not exist
 		$reply['title'] = 'JavaScript Error';
 		$reply['message'] = 'The order cannot be processed. Please make sure you have JavaScript enabled and try again.';
 
@@ -74,7 +71,7 @@ if(!empty($_POST)) {
 	if (empty($reply)) {
 
 		// Use Magpie
-		$magpie = new MagpieApi\Magpie(MAGPIE_PUBLIC_KEY, MAGPIE_SECRET_KEY);
+		$magpie = new MagpieApi\Magpie($magpie_public_key, $magpie_secret_key);
 
 		// Create the charge and capture
 		$response = $magpie->charge->create(
@@ -83,7 +80,7 @@ if(!empty($_POST)) {
 			$token,			// Token
 			$description,	// Product description
 			$statement_descriptor,	// The statement descriptor
-			TRUE 			// Capture (true is capture, false is not)
+			true 			// Capture (true is capture, false is not)
 			);
 
 		// Get the reply from Magpie
@@ -92,11 +89,10 @@ if(!empty($_POST)) {
 		// Check the response
 		if ($response->isSuccess()) {
 			// The charge went through
-			// To-do:
-
-			// Record the transaction details
-			//Send email
-			// Other stuff
+			// TO-DO:
+			// Record the transaction details in your database of choice
+			// Send an email receipt to your customer
+			// Other stuff that you need to do
 
 			// Set reply
 			$reply['title'] = "Payment Success";
